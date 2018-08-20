@@ -1,0 +1,20 @@
+﻿@model SearchViewModel
+@{
+    Layout = null;
+}
+
+<h3>Tweets Count: @Model.TweetCount</h3>
+@if(!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="tweet-error">Error: @Model.ErrorMessage</div>
+}
+@if(Model.Tweets != null)
+{
+    @foreach (var tweet in Model.Tweets)
+    {
+        <p>Id: @tweet.Id</p>
+        <p>Text: @tweet.Text</p>
+        <p>Stamp: @tweet.Stamp</p>
+        <hr />
+    }
+}

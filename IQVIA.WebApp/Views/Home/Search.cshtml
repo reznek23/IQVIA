@@ -1,0 +1,18 @@
+﻿@model SearchViewModel
+@{
+    <div>
+        <h3>Start date: @Model.StartDateFormatted</h3>
+        <h3>End date: @Model.EndDateFormatted</h3>
+        <h3>Tweets Count: @Model.TweetCount</h3>
+    </div>
+}
+@if (Model.Tweets != null)
+{
+    @foreach (var tweet in Model.Tweets)
+    {
+        <p>Id: @tweet.Id</p>
+        <p>Text: @tweet.Text</p>
+        <p>Stamp: @tweet.Stamp</p>
+        <hr />
+    }
+}

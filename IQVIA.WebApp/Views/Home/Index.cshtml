@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home page";
+}
+@model SearchViewModel
+<div class="tweet-search">
+    <h2>Search Tweets</h2>
+    <form asp-controller="Home" asp-action="Search" data-ajax-begin="showLoader" data-ajax-complete="hideLoader" data-ajax="true" data-ajax-method="POST" data-ajax-update=".tweet-result">
+        <div class="form-group">
+            <label for="start_date">Start Date (treated as UTC, inclusive):</label>
+            <input asp-for="StartDate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="end_date">End Date (treated as UTC, inclusive):</label>
+            <input asp-for="EndDate" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-tweet-search">Search</button>
+    </form>
+</div>
+<div class="tweet-search loader-container loader-hide">
+    <div class="tweet-result">
+    </div>
+    <div class="loader">
+        <img src="@Url.Content("~/images/ajax-loader.gif")" />
+    </div>
+</div>
